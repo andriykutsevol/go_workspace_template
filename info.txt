@@ -1,0 +1,32 @@
+Every Go program is made up of packages.
+Programs start running in package main.
+
+
+go env -w GO111MODULE=on       (in go1.20.8 it is default)
+
+go mod init example1/main
+
+cd ./math
+
+go mod init example1/math
+
+cd ../
+
+go work use .
+go work use ./math/
+
+cd ./crypto
+
+go mod init example1/crypto
+
+cd ../
+
+go work use ./crypto/
+
+
+
+
+	# $(shell cd ./math && go mod init go_workspace_template/math && cd ../)
+	# go work use ./math/
+	# $(shell cd ./math && go mod init go_workspace_template/crypto && cd ../)
+	# go work use ./crypto/
